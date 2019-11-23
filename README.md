@@ -1,12 +1,12 @@
 # PhotoShop Scripts
 
-## Scripts
+## Using scripts
 
-### toggle_visibility-text_layer.js
+In PhotoShop, you can run a script by:
+1. **File > Scripts > Browse...**
+2. Open
 
-This script goes through the layers in the current document and toggles the visibility of text layers.
-
-To run it on multiple PSD files:
+### To run a script on multiple PSD files:
 
 1. create a new Action (call it something like `toggle-text-layer-visibility`) and record...
    1. **File > Scripts > Browse...** 
@@ -18,8 +18,15 @@ To run it on multiple PSD files:
    2. Select the folder of images
    3. Don't override the save location, unless you want to save duplicates elsewhere
 
+## Scripts
 
-## Script development
+### toggle_visibility-text_layer.js
+
+This script goes through the layers in the current document and toggles the visibility of text layers.
+
+You must have a document already open to run this script.
+
+## PhotoShop script development – the basics
 
 You can code your script in any editor (e.g. VS Code, Atom, Sublime Text, etc), and save the `.js` file wherever. Then, in PhotoShop, you can run that script with **File > Scripts > Browse...**.
 
@@ -35,14 +42,18 @@ Open ExtendScript. When you run a script from PhotoShop, log statements will sho
 $.writeln("hello world")
 ```
 
-**Doing stuff**
+**Getting stuff**
 
 To access the object model and do stuff, use `app`. To do stuff to the current document, use `app.activeDocument`. Make this faster by creating variables:
 
 ```JavaScript
 var currentDoc = app.activeDocument // get current doc
-var layers = currentDoc.artLayers // get art layers
+var artLayers = currentDoc.artLayers // get art layers
+$.writeln(currentDoc, artLayers)
 ```
 
-**References**
-- [JavaScript API](https://www.adobe.com/content/dam/acom/en/devnet/photoshop/pdfs/photoshop-cc-javascript-ref-2019.pdf)
+**Doing stuff**
+
+See the PhotoShop [JavaScript API Docs](https://www.adobe.com/content/dam/acom/en/devnet/photoshop/pdfs/photoshop-cc-javascript-ref-2019.pdf) for a reference of the document object model and what you can do to those objects.
+
+See `toggle_visibility-text_layer.js` for a simple example of a script that does stuff to PhotoShop documents.
