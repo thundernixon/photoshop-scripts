@@ -28,6 +28,8 @@ You must have a document already open to run this script.
 
 ## PhotoShop script development – the basics
 
+NOTE: this is pretty much all different as of April 2024. I don’t really know the current best way to develop, but one useful way to explore a document’s structure is by using the Adboe UXP Developer Tools. The scripts in this repo still work as of now, in Photoshop 2024 on an M1 Mac, but it seems fairly likely they won’t work in the nearish future, as the Adobe API seems to have changed.
+
 You can code your script in any editor (e.g. VS Code, Atom, Sublime Text, etc), and save the `.js` file wherever. Then, in PhotoShop, you can run that script with **File > Scripts > Browse...**.
 
 **console.log() / print to console**
