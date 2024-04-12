@@ -6,19 +6,21 @@
 
 // Set the color values by changing only the numbers here (0–100 as a percentage)
 var C = 0
-var M = 0
+var M = 100
 var Y = 0
-var K = 100
+var K = 0
 
 // loop through all groups and layers
 processLayers(app.activeDocument);
 
+// adapted from https://community.adobe.com/t5/photoshop-ecosystem-discussions/accessing-all-the-layers-in-all-the-layer-sets/m-p/10392739
 function processLayers(o) {
     var i;
     var layer;
     for (i = 0; i < o.layers.length; i++) {
         layer = o.layers[i];
-        if (layer instanceof LayerSet) {
+        // if (layer instanceof LayerSet) {
+        if (layer.typename === "LayerSet") {
             // If it’s a layer set (AKA "a group"), recurse (call self).
             processLayers(layer);
         }
